@@ -1,0 +1,5 @@
+C:\Users\Alexp\OneDrive\Υπολογιστής\TestingCode\TestingCode\SQLWR\bin\Debug\SQLWR.dll
+C:\Users\Alexp\OneDrive\Υπολογιστής\TestingCode\TestingCode\SQLWR\bin\Debug\SQLWR.pdb
+C:\Users\Alexp\OneDrive\Υπολογιστής\TestingCode\TestingCode\SQLWR\obj\Debug\SQLWR.csproj.CoreCompileInputs.cache
+C:\Users\Alexp\OneDrive\Υπολογιστής\TestingCode\TestingCode\SQLWR\obj\Debug\SQLWR.dll
+C:\Users\Alexp\OneDrive\Υπολογιστής\TestingCode\TestingCode\SQLWR\obj\Debug\SQLWR.pdb
