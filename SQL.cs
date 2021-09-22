@@ -13,7 +13,7 @@ namespace SQLWR
     public class SQL
     {
         public string ConnectingString { get; set; }
-        public delegate void GetObject<T>(SqlDataReader reader, List<T> list);
+        public delegate void GetObject(SqlDataReader reader);
         public delegate void FillParams(SqlCommand com);
         public SQL() { }
         public SQL(string connectionString)
@@ -67,9 +67,8 @@ namespace SQLWR
         /// <param name="query"></param>
         /// <param name="function"></param>
         /// <returns></returns>
-        public List<T> Read<T>(string query, GetObject<T> func)
+        public void Read(string query, GetObject func)
         {
-            List<T> users = new List<T>();
             using (SqlConnection conn = new SqlConnection(this.ConnectingString))
             {
                 try
@@ -80,7 +79,7 @@ namespace SQLWR
                         SqlDataReader reader = com.ExecuteReader();
                         while (reader.Read())
                         {
-                            func(reader, users);
+                            func(reader);
                         }
                         reader.Close();
                     }
@@ -98,7 +97,6 @@ namespace SQLWR
                     conn.Close();
                 }
             }
-            return users;
         }
         public string Help()
         {
@@ -120,7 +118,8 @@ Write:
     });
 
 Read:
-    List<User> user_s = sql.Read<User>('SELECT* FROM[dbo].[User]', (reader, users) =>
+    List<User> users = new List<User>();
+    sql.Read('SELECT* FROM[dbo].[User]', reader =>
     {
         User user = new User();
         user.id = int.Parse(reader['ID'].ToString().Trim());

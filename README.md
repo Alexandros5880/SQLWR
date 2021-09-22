@@ -19,7 +19,8 @@
         });
 
     Read:
-        List user_s = sql.Read("SELECT* FROM[dbo].[User]", (reader, users) => 
+        List<User> users = new List<User>();
+        sql.Read("SELECT* FROM[dbo].[User]", reader => 
         { 
             User user = new User();
             user.id = int.Parse(reader["ID"].ToString().Trim());
