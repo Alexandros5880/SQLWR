@@ -1,6 +1,7 @@
 ﻿### SQLWR
 ###### SQL query helper class
 
+    Add Refrence to SQLWR.dll.
 
     using SQLWR;
 
